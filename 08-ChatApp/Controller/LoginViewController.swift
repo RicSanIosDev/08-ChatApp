@@ -10,15 +10,32 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(focusOutTextField))
+        self.view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
     }
+    
+    @objc func focusOutTextField(){
+           self.emailTextField.endEditing(true)
+       self.passwordTextField.endEditing(true)
+       
+       }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+    
     
     @IBAction func loginPressed(_ sender: UIButton) {
         

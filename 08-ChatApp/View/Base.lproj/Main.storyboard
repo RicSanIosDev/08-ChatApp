@@ -168,6 +168,7 @@
                     <navigationItem key="navigationItem" title="Registrar cuenta" id="I3Q-Z8-HJb"/>
                     <connections>
                         <outlet property="emailTextField" destination="2JW-9y-Zbh" id="QHJ-LM-rg7"/>
+                        <outlet property="imageViewBackground" destination="jHC-tz-KUC" id="fQG-3i-6ef"/>
                         <outlet property="password2TextField" destination="2w8-cf-Aco" id="OUj-TF-aVV"/>
                         <outlet property="passwordTextField" destination="7GQ-Ni-juN" id="WBD-Ph-bZj"/>
                         <outlet property="switchConditions" destination="cWH-MQ-MRm" id="6tt-wR-k3P"/>
@@ -369,7 +370,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vUx-K8-LWw"/>
+        <segue reference="3ca-yK-bO3"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="laptop" width="643" height="427"/>

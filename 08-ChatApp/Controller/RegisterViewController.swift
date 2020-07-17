@@ -10,16 +10,33 @@ import UIKit
 import Firebase
 import SVProgressHUD
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController,UITextFieldDelegate {
 
+    @IBOutlet weak var imageViewBackground: UIImageView!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var password2TextField: UITextField!
     @IBOutlet weak var switchConditions: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        self.password2TextField.delegate = self
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(focusOutTextField))
+             
+        self.view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
+    }
+    
+   @objc func focusOutTextField(){
+        self.emailTextField.endEditing(true)
+    self.passwordTextField.endEditing(true)
+    self.password2TextField.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
     }
     
     @IBAction func registerPressed(_ sender: UIButton) {
